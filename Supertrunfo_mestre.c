@@ -1,7 +1,8 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
-int main()
-{
+int main(){
    int populacao1, ponto_turisticos1;
    char nome_cidade1[20], nome_estado1[20], codigo1[10];
    float area1, PIB1;
@@ -149,6 +150,97 @@ int main()
         printf("Carta 2 vence!\n");
     }
 
+    int escolha;
+    printf("\n\n---- MENU DE COMPARAÇÃO ----\n");
+    printf("Escolha um atributo para comparar as cartas:\n");
+    printf("1 - População\n");
+    printf("2 - Área\n");
+    printf("3 - PIB\n");
+    printf("4 - Número de Pontos Turísticos\n");
+    printf("5 - Densidade Demográfica\n");
+    printf("6 - PIB per capita\n");
+    printf("Digite sua opção (1 a 6): ");
+    scanf("%d", &escolha);
+
+    printf("\nComparando as cartas %s e %s:\n", nome_cidade1, nome_cidade2);
+
+    switch (escolha) {
+        case 1:
+            printf("Atributo: População\n");
+            printf("%s: %d habitantes\n", nome_cidade1, populacao1);
+            printf("%s: %d habitantes\n", nome_cidade2, populacao2);
+            if (populacao1 > populacao2)
+                printf("-> %s venceu!\n", nome_cidade1);
+            else if (populacao2 > populacao1)
+                printf("-> %s venceu!\n", nome_cidade2);
+            else
+                printf("-> Empate!\n");
+            break;
+
+        case 2:
+            printf("Atributo: Área\n");
+            printf("%s: %.2f km²\n", nome_cidade1, area1);
+            printf("%s: %.2f km²\n", nome_cidade2, area2);
+            if (area1 > area2)
+                printf("-> %s venceu!\n", nome_cidade1);
+            else if (area2 > area1)
+                printf("-> %s venceu!\n", nome_cidade2);
+            else
+                printf("-> Empate!\n");
+            break;
+
+        case 3:
+            printf("Atributo: PIB\n");
+            printf("%s: %.2f\n", nome_cidade1, PIB1);
+            printf("%s: %.2f\n", nome_cidade2, PIB2);
+            if (PIB1 > PIB2)
+                printf("-> %s venceu!\n", nome_cidade1);
+            else if (PIB2 > PIB1)
+                printf("-> %s venceu!\n", nome_cidade2);
+            else
+                printf("-> Empate!\n");
+            break;
+
+        case 4:
+            printf("Atributo: Pontos Turísticos\n");
+            printf("%s: %d pontos\n", nome_cidade1, ponto_turisticos1);
+            printf("%s: %d pontos\n", nome_cidade2, ponto_turisticos2);
+            if (ponto_turisticos1 > ponto_turisticos2)
+                printf("-> %s venceu!\n", nome_cidade1);
+            else if (ponto_turisticos2 > ponto_turisticos1)
+                printf("-> %s venceu!\n", nome_cidade2);
+            else
+                printf("-> Empate!\n");
+            break;
+
+        case 5:
+            printf("Atributo: Densidade Demográfica\n");
+            printf("%s: %.2f hab/km²\n", nome_cidade1, densidadepopulacional1);
+            printf("%s: %.2f hab/km²\n", nome_cidade2, densidadepopulacional2);
+            if (densidadepopulacional1 < densidadepopulacional2)
+                printf("-> %s venceu! (menor densidade)\n", nome_cidade1);
+            else if (densidadepopulacional2 < densidadepopulacional1)
+                printf("-> %s venceu! (menor densidade)\n", nome_cidade2);
+            else
+                printf("-> Empate!\n");
+            break;
+
+        case 6:
+            printf("Atributo: PIB per capita\n");
+            printf("%s: %.2f\n", nome_cidade1, percapita1);
+            printf("%s: %.2f\n", nome_cidade2, percapita2);
+            if (percapita1 > percapita2)
+                printf("-> %s venceu!\n", nome_cidade1);
+            else if (percapita2 > percapita1)
+                printf("-> %s venceu!\n", nome_cidade2);
+            else
+                printf("-> Empate!\n");
+            break;
+
+        default:
+            printf("Opção inválida! Por favor, reinicie o programa e escolha um número entre 1 e 6.\n");
+            break;
+    }
 
 
    return 0;
